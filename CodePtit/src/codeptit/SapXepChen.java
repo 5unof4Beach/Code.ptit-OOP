@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package code.ptit;
+package codeptit;
 
 import java.util.*;
 
@@ -11,8 +11,11 @@ import java.util.*;
  *
  * @author suckm
  */
-public class SapXepChon {
+public class SapXepChen {
 
+    /**
+     * @param args the command line arguments
+     */
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
@@ -24,20 +27,13 @@ public class SapXepChon {
             arr[i] = sc.nextLong();
         }
         
-        // cai dat thuat toan selecton sort
-        int min;
-        for(int i=0;i<n-1;i++){
-            min = i;
-            for(int j=i+1;j<n;j++){
-                if(arr[j] < arr[min]){
-                    min = j;
-                }
-            }
-            // doi vi tri
-            temp = arr[i];
-            arr[i] = arr[min];
-            arr[min] = temp;
-            
+        // cai dat thuat toan insertion sort
+        long val,hole;
+        Vector<long> b = null;
+        for(int i=0;i<n;i++)
+        {
+            b.add(arr[i]);
+        }
             // in ra man hinh
             System.out.print("Buoc " + (i+1) +": ");
             for(long element : arr){
@@ -45,9 +41,8 @@ public class SapXepChon {
             }
             System.out.println("\n");
             
-            
-        }
     }
+    
     
     
 }

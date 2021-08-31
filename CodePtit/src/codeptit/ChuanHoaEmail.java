@@ -3,7 +3,7 @@
  * To change this emaillate file, choose Tools | Templates
  * and open the template in the editor.
  */
-package code.ptit;
+package codeptit;
 import java.util.*;
 /**
  *
