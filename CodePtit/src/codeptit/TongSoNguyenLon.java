@@ -18,15 +18,15 @@ public class TongSoNguyenLon {
      */
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-//        int t = sc.nextInt();
-//        while(t-->0)
-//        {
+        int t = sc.nextInt();
+        while(t-->0)
+        {
+            String a = sc.next(),b = sc.next();
+            BigInteger A = new BigInteger(a);
+            BigInteger B = new BigInteger(b);
+            System.out.println(A.add(B));
 //            
-//        }
-        String a = sc.next(),b = sc.next();
-        BigInteger A = new BigInteger(a);
-        BigInteger B = new BigInteger(b);
-        System.out.println(A.subtract(B));
+        }
         
     }
     
