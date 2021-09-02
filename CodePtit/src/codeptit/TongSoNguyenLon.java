@@ -24,10 +24,23 @@ public class TongSoNguyenLon {
             String a = sc.next(),b = sc.next();
             BigInteger A = new BigInteger(a);
             BigInteger B = new BigInteger(b);
-            System.out.println(A.add(B));
+//            System.out.println(A.add(B));
+            String temp = A.subtract(B).abs().toString();
+//            System.out.println(temp);
+            int l = 0;
+            if(a.length() < b.length()){
+                l = b.length();
+            }
+            else{
+                l = a.length();
+            }
+            if(temp.length() < l){
+                for(int i = 0 ; i< l - temp.length();i++)
+                    System.out.print(0);
+            }
+            System.out.println(temp);
 //            
-        }
+          }
         
     }
-    
 }
