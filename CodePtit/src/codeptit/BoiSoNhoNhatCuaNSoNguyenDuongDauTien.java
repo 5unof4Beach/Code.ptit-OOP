@@ -16,8 +16,8 @@ public class BoiSoNhoNhatCuaNSoNguyenDuongDauTien {
         while(t-->0){
             
             long n1 = sc.nextLong();
-            long temp = LCM(1,2);
-            for(long i=3;i<=n1;i++){
+            long temp = 1;
+            for(long i=2;i<=n1;i++){
                 temp = LCM(i, temp);
             }
             System.out.println(temp);
