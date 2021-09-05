@@ -13,42 +13,22 @@ import java.util.*;
  */
 public class UocSoChiaHetCho2 {
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        int t = sc.nextInt();
-        while(t-->0)
-        {            
-            int c=0 , res =1;
+        int T = sc.nextInt();
+        while(T-->0){
             long n = sc.nextLong();
-            if(n % 2 == 1) 
-                System.out.println("0");
-            else{
-                
-                while(n%2==0){ //n co dang 2^k * m
-                    n/=2;
-                    c++;
+            int res = 0;
+            for(int i=1;i<=Math.sqrt(n);i++){
+                if(n%i == 0){
+                    if(i%2 == 0)
+                        res++;
+                    if((n/i)%2 == 0 && n/i != i)
+                        res++;
                 }
-                res *= c;
-
-                if(n > 1){
-                    c = 2;
-                    for(long i = 3;i<(int)n/2;i++){
-                        if(n%i==0){
-                            c++;
-                            
-                        }
-                    }
-                    System.out.println(c);
-                    res *= c;
-                }
-                System.out.println(res);
             }
+
+            System.out.println(res);
         }
-        
-        
     }
-    
 }

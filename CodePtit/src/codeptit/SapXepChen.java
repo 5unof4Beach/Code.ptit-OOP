@@ -28,21 +28,28 @@ public class SapXepChen {
         }
         
         // cai dat thuat toan insertion sort
-        long val,hole;
-        Vector<long> b = null;
-        for(int i=0;i<n;i++)
-        {
-            b.add(arr[i]);
-        }
-            // in ra man hinh
-            System.out.print("Buoc " + (i+1) +": ");
-            for(long element : arr){
-                System.out.print(element+" ");
+        long val;
+        int hole;
+        for(int i=1;i<n;i++){
+            val = arr[i];
+            hole = i;
+            print(i, arr);
+            while(hole > 0 && arr[hole - 1] > val)
+            {
+                arr[hole] = arr[hole - 1];
+                hole--;
             }
-            System.out.println("\n");
-            
+            arr[hole] = val;
+        }
+      
+        print(n, arr);
     }
     
-    
-    
+    public static void print(int count,long arr[]){
+        System.out.print("Buoc " + (count - 1) + ": ");
+        for(int i = 0;i<count;i++){
+            System.out.print(arr[i] + " ");
+        }
+        System.out.println("");
+    }
 }
