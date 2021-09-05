@@ -12,16 +12,16 @@ public class TongUocSo {
         
 //        sang so nguyen to
         int Prime_set[] = new int[200000];
-        boolean num[] = new boolean[2000000];
+        boolean num[] = new boolean[2000006];
         Arrays.fill(num,true);
         num[0] = false;
         num[1] = false;
         int pos = 0;
-        for(int i=2;i*i<2000000;i++){
+        for(int i=2;i*i<2000006;i++){
             if(num[i]){
                 Prime_set[pos] = i;
                 pos++;
-                for(int j=i*i;j<2000000;j += i){
+                for(int j=i*i;j<2000006;j += i){
                     num[j] = false;
                 }
             }
