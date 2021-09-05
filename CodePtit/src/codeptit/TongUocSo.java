@@ -8,8 +8,8 @@ public class TongUocSo {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
-        int temp,sum = 0;
-        
+        long sum = 0;
+        int temp = 0;
 //        sang so nguyen to
         int Prime_set[] = new int[200000];
         boolean num[] = new boolean[2000006];
