@@ -1,10 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package codeptit;
-import java.math.BigInteger;
 import java.util.*;
 /**
  *
@@ -15,8 +9,7 @@ public class KiemTraSoFibo {
         Scanner sc = new Scanner(System.in);
         int t = sc.nextInt();
         while(t-->0){
-//            long num = sc.nextLong();
-            BigInteger num = new BigInteger(sc.next());
+            long num = sc.nextLong();
             if(isFibo(num)){
                 System.out.println("YES");
             }
@@ -26,23 +19,21 @@ public class KiemTraSoFibo {
         }
     }
     
-    public static boolean isPerfect(BigInteger n){
-        BigInteger x = new BigInteger("0");
-        x = n.sqrt();
-        x = x.multiply(x);
-        System.out.println(x);
-        return x.equals(n);
-       
-    }
 //    A number is Fibonacci if and only if one or both of (5*n2 + 4) 
 //    or (5*n2 – 4) is a perfect square
-    public static boolean isFibo(BigInteger n){
-        BigInteger four = new BigInteger("4");
-        BigInteger five = new BigInteger("5");
-        n = n.multiply(n);
-        n = n.multiply(five);
-//        System.out.println(n);
-        return isPerfect(n.subtract(four)) ||
-               isPerfect(n.add(four));
+    public static boolean isFibo(long n){
+//        neu < 2 thi la fibo
+        if(n<2) return true;
+        long sum = 0;
+        long f1 = 1;
+        long f2 = 1;
+        while(sum <= n){
+            sum = f1 + f2;
+            f1 = f2;
+            f2 = sum;
+            if(sum == n) return true;
+        }
+        return false;
+        
     }
 }
