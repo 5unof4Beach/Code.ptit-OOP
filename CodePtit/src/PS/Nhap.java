@@ -14,10 +14,11 @@ public class Nhap {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         PhanSo ps1 = new PhanSo(sc.nextLong(),sc.nextLong());
-        PhanSo ps2 = new PhanSo(sc.nextLong(),sc.nextLong());
-        long res_tu = ps1.tu * ps2.mau + ps2.tu * ps1.mau;
-        long res_mau = ps1.mau * ps2.mau;
-        PhanSo res = new PhanSo(res_tu,res_mau);
-        res.rutGon();
+//        PhanSo ps2 = new PhanSo(sc.nextLong(),sc.nextLong());
+//        long res_tu = ps1.tu * ps2.mau + ps2.tu * ps1.mau;
+//        long res_mau = ps1.mau * ps2.mau;
+//        PhanSo res = new PhanSo(res_tu,res_mau);
+//        res.rutGon();
+        ps1.rutGon();
     }
 }
