@@ -5,10 +5,7 @@
  */
 package codeptit;
 import java.util.*;
-/**
- *
- * @author suckm
- */
+
 public class RutGonXauKyTu {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
@@ -31,6 +28,7 @@ public class RutGonXauKyTu {
                 }
             }
         }
+        
         if(str.toString().equals("")){
             System.out.println("Empty String");
         }
