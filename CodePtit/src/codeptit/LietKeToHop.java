@@ -20,10 +20,11 @@ public class LietKeToHop {
         int c = 0;
         init();
         while(!last){
-            print();
+            print2();
             generate();
             c++;
         }
+        System.out.println("");
         System.out.println("Tong cong co " + c + " to hop");
     }
     
@@ -47,10 +48,17 @@ public class LietKeToHop {
         }
     }
     
-    public static void print(){
+    public static void print1(){
         for(int i = 1;i <=k;i++){
             System.out.print(x[i] + " ");
         }
         System.out.println("");
+    }
+    
+    public static void print2(){
+        for(int i = 1;i <=k;i++){
+            System.out.print(x[i]);
+        }
+        System.out.print(" ");
     }
 }
