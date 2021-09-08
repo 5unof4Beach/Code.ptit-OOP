@@ -12,35 +12,31 @@ import java.util.*;
 public class RutGonXauKyTu {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        Stack<Character> res = new Stack<Character>();
-        String str = sc.nextLine();
-        int n = str.length();
-        String temp = "";
+        String in = sc.nextLine();
+        StringBuilder str = new StringBuilder(in);
+        
         boolean flag = true;
         while(flag){
-            flag = false;
+            flag = false; // bien kiem tra su ton tai cua phan tu bi lap
             int i = str.length()-1;
             while(i > 0){
                 if( str.charAt(i) == str.charAt(i-1)){
                     flag = true;
-                    temp += str.charAt(i);
-                    temp += str.charAt(i);
-                    str = str.replace(temp, "");
+                    str.deleteCharAt(i);  //neu hai phan tu giong nhau thi xoa
+                    str.deleteCharAt(i-1);// 2 phan tu do di.
                     i -= 2;
                 }
                 else{
                     i--;
                 }
             }
-            System.out.println(str);
         }
-//        if(res.empty()){
-//            System.out.println("Empty String");
-//        }
-//        while( !res.empty()){
-//            System.out.print(res.pop());
-//        } 
-        System.out.println(str);
-        System.out.println();
+        if(str.toString().equals("")){
+            System.out.println("Empty String");
+        }
+        else{
+            System.out.println(str.toString());
+        }
+        
     }
 }
