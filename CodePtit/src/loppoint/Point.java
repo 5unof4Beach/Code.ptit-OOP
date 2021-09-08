@@ -42,9 +42,7 @@ public class Point {
         this.y = y;
     }
     public double distance(Point secondPoint){
-        double deltaX = Math.abs(this.x - secondPoint.getX());
-        double deltaY = Math.abs(this.y - secondPoint.getY());
-        return(Math.sqrt(Math.pow(deltaX, 2) + Math.pow(deltaY, 2)));
+        return distance(secondPoint, this);
     }
     
     public double distance(Point p1,Point p2){

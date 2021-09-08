@@ -75,30 +75,23 @@ public class SinhVien {
     }
     
     public void printDOB(){
-        int d=0,m=0;
-        int i=0;
-        for(i=0 ;i<dob.length();i++){
-            if(dob.charAt(i) == '/') break;
-            d++;
-        }
-        for( int j=i+1;j<dob.length();j++){
-            if(dob.charAt(j) == '/') break;
-            m++;
-        }
-        String arr[] = dob.split("/");
-        if(d==1){
-            System.out.print("0" + arr[0] + "/");
+        String temp[] = dob.split("/");
+        String res = "";
+        if(temp[0].length() == 2){
+            res += temp[0] +'/';
         }
         else{
-            System.out.print(arr[0] + "/");
+            res += '0' + temp[0] +'/';
         }
-        if(m==1){
-            System.out.print("0" + arr[1] + "/");
+        
+        if(temp[1].length() == 2){
+            res += temp[1] +'/';
         }
         else{
-            System.out.print(arr[1] + "/");
+            res += '0' + temp[1] +'/';
         }
-        System.out.print(arr[2] + " ");
+        res += temp[2];
+        System.out.println(res.toString());
         
     }
 }
