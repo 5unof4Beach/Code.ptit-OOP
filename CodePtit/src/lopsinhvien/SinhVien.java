@@ -91,7 +91,7 @@ public class SinhVien {
             res += '0' + temp[1] +'/';
         }
         res += temp[2];
-        System.out.println(res.toString());
+        System.out.print(res.toString() + " ");
         
     }
 }
