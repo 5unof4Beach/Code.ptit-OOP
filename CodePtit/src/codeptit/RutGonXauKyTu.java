@@ -14,7 +14,7 @@ public class RutGonXauKyTu {
         
         boolean flag = true;
         while(flag){
-            flag = false; // bien kiem tra su ton tai cua phan tu bi lap
+            flag = false; // biến kiem tra su ton tai cua phan tu bi lap
             int i = str.length()-1;
             while(i > 0){
                 if( str.charAt(i) == str.charAt(i-1)){
