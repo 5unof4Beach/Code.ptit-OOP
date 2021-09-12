@@ -20,7 +20,6 @@ public class TinhGio {
             player.setTimeIn(sc.nextLine());
             player.setTimeOut(sc.nextLine());
             player.setTimePlay();
-//            sc.nextLine();
             res.add(player);
             
         }

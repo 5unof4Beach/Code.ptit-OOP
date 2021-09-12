@@ -52,7 +52,7 @@ public class Player {
         SimpleDateFormat df = new SimpleDateFormat("hh:mm"); 
         Date in = df.parse(timeIn);
         Date out = df.parse(timeOut);
-        this.timePlayed = out.getTime() - in.getTime();
+        this.timePlayed = out.getTime() - in.getTime();//kết quả bằng mili giây
 //        
     }
 
