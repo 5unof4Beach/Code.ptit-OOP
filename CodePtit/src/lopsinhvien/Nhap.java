@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package lopsinhvien;
+import java.text.ParseException;
 import java.util.*;
 import lopsinhvien.SinhVien;
 /**
@@ -11,18 +12,19 @@ import lopsinhvien.SinhVien;
  * @author suckm
  */
 public class Nhap {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws ParseException {
         Scanner sc = new Scanner(System.in);
-        SinhVien sv = new SinhVien();
-        sv.setStuID("B20DCCN001");
-        sv.setName(sc.nextLine());
-        sv.setLop(sc.nextLine());
-        sv.setDob(sc.next());
-        sv.setGpa(sc.nextFloat());
-        sv.printstuID();
-        sv.printName();
-        sv.printLop();
-        sv.printDOB();
-        sv.printGPA();
+        Vector<SinhVien> res = new Vector<SinhVien>();
+        
+        String name = sc.nextLine();
+        String lop = sc.nextLine();
+        String dob = sc.nextLine();
+        float gpa = Float.parseFloat(sc.nextLine());
+        SinhVien sv = new SinhVien(1,name,lop,dob,gpa);
+        res.add(sv);
+        
+        for(SinhVien element:res){
+            System.out.println(element.toString());
+        }
     }
 }

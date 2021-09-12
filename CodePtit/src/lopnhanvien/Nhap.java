@@ -20,7 +20,7 @@ public class Nhap {
         nv.setAddr(sc.nextLine());
         nv.setTaxcode(sc.nextLine());
         nv.setContract_date(sc.next());
-        nv.setStt("00001");
+        nv.setStt(1);
         
         System.out.print(nv.getStt() + " " );
         System.out.print(nv.getName() + " " );

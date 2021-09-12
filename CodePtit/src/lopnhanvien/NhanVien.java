@@ -5,28 +5,38 @@
  */
 package lopnhanvien;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 /**
  *
  * @author suckm
  */
 public class NhanVien {
-    private String id,name,gender,dob,addr,taxcode,contract_date,stt;
-
-    public String getStt() {
-        return stt;
-    }
-
-    public void setStt(String stt) {
-        this.stt = stt;
+    private String name,gender,addr,taxcode;
+    private Date dob,contract_date;
+    private int id;
+    
+    public NhanVien(int id,String name,String gender,String dob,
+                    String add,String tax,String contract) throws ParseException
+    {
+        this.id = id;
+        this.name = name;
+        this.gender = gender;
+        Date temp = new SimpleDateFormat("dd/mm/yyyy").parse(dob);
+        this.dob = temp;
+        this.addr = add;
+        this.taxcode = tax;
+        temp = new SimpleDateFormat("dd/mm/yyyy").parse(contract);
+        this.contract_date = temp;
     }
     
-    
-
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -46,28 +56,13 @@ public class NhanVien {
         this.gender = gender;
     }
 
-    public String getDob() {
-        String temp[] = dob.split("/");
-        String res = "";
-        if(temp[0].length() == 2){
-            res += temp[0] +'/';
-        }
-        else{
-            res += '0' + temp[0] +'/';
-        }
-        
-        if(temp[1].length() == 2){
-            res += temp[1] +'/';
-        }
-        else{
-            res += '0' + temp[1] +'/';
-        }
-        res += temp[2];
-        return res.toString();
+    public Date getDob() {
+        return dob;
     }
 
-    public void setDob(String dob) {
-        this.dob = dob;
+    public void setDob(String dob) throws ParseException {
+        Date temp = new SimpleDateFormat("dd/mm/yyyy").parse(dob);
+        this.dob = temp;
     }
 
     public String getAddr() {
@@ -86,28 +81,34 @@ public class NhanVien {
         this.taxcode = taxcode;
     }
 
-    public String getContract_date() {
-        String temp[] = contract_date.split("/");
-        String res = "";
-        if(temp[0].length() == 2){
-            res += temp[0] +'/';
-        }
-        else{
-            res += '0' + temp[0] +'/';
-        }
-        
-        if(temp[1].length() == 2){
-            res += temp[1] +'/';
-        }
-        else{
-            res += '0' + temp[1] +'/';
-        }
-        res += temp[2];
-        return res.toString();
+    public Date getContract_date() {
+        return contract_date;
     }
 
-    public void setContract_date(String contract_date) {
-        this.contract_date = contract_date;
+    public void setContract_date(String contract_date) throws ParseException {
+        Date temp = new SimpleDateFormat("dd/mm/yyyy").parse(contract_date);
+        this.contract_date = temp;
+    }
+    
+    public String toString(){
+        //chuan hoa stt
+        String ID = "";
+        if(this.id < 10){
+            ID = "0000" + this.id;
+        }
+        else
+        {
+            ID = "000" + this.id;
+        }
+        
+        SimpleDateFormat formatter = new SimpleDateFormat("dd/mm/yyyy");
+        String dateOfBirth = formatter.format(dob);
+        String contractDate = formatter.format(contract_date);
+        return String.format("%s %s %s %s %s %s %s",ID,name,gender,dateOfBirth,addr,taxcode,contractDate);
+    }
+    
+    public void show(){
+        System.out.println(toString());
     }
     
 }

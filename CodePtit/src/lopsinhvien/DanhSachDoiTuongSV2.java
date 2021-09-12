@@ -7,11 +7,14 @@ package lopsinhvien;
 import java.text.ParseException;
 import java.util.*;
 import lopsinhvien.SinhVien;
-
-public class DanhSachDoiTuongSV1 {
+/**
+ *
+ * @author suckm
+ */
+public class DanhSachDoiTuongSV2 {
     public static void main(String[] args) throws ParseException {
         Scanner sc = new Scanner(System.in);
-        int n = Integer.parseInt(sc.nextLine());        
+        int n = Integer.parseInt(sc.nextLine());
         Vector<SinhVien> res = new Vector<SinhVien>();
         for(int i = 1;i<=n;i++){
             String name = sc.nextLine();
@@ -24,6 +27,5 @@ public class DanhSachDoiTuongSV1 {
         for(SinhVien element:res){
             System.out.println(element.toString());
         }
-    
     }
 }

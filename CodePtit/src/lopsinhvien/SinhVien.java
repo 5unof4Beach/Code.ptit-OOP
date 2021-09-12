@@ -1,23 +1,30 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package lopsinhvien;
+import java.text.ParseException;
+import java.util.Date;
+import java.text.SimpleDateFormat;
 
-/**
- *
- * @author suckm
- */
 public class SinhVien {
-    private String name,lop,dob,stuID;
+    private String name,lop;
+    private Date dob;
+    private int stuID;
     private float gpa;
     
     public SinhVien(){
+        this.stuID = 0;
         this.name = "";
         this.lop = "";
-        this.dob = "";
+        this.dob = null;
         this.gpa = 0;
+    }
+    
+    public SinhVien(int id,String name,String lop,String dob,float gpa) throws ParseException{
+        this.stuID = id;
+//        lowercase và trim ngay tại đây
+        this.name = name.toLowerCase().trim();
+        this.lop = lop;
+        Date temp = new SimpleDateFormat("dd/mm/yyyy").parse(dob);
+        this.dob = temp;
+        this.gpa = gpa;
     }
 
     public String getName() {
@@ -36,14 +43,6 @@ public class SinhVien {
         this.lop = lop;
     }
 
-    public String getDob() {
-        return dob;
-    }
-
-    public void setDob(String dob) {
-        this.dob = dob;
-    }
-
     public float getGpa() {
         return gpa;
     }
@@ -54,44 +53,32 @@ public class SinhVien {
     
     
     
-    public void setStuID(String stuID) {
+    public void setStuID(int stuID) {
         this.stuID = stuID;
     }
+        
     
-    public void printstuID(){
-        System.out.print(this.stuID + " ");
-    }
-    
-    public void printName(){
-        System.out.print(this.name + " ");
-    }
-    
-    public void printLop(){
-        System.out.print(this.lop + " ");
-    }
-    
-    public void printGPA(){
-        System.out.printf("%.2f",gpa);
-    }
-    
-    public void printDOB(){
-        String temp[] = dob.split("/");
-        String res = "";
-        if(temp[0].length() == 2){
-            res += temp[0] +'/';
+    public String toString() {
+        String temp = "";
+        if(this.stuID < 10){
+            temp += "00" + this.stuID;
         }
         else{
-            res += '0' + temp[0] +'/';
+            temp += "0" +this.stuID;
         }
-        
-        if(temp[1].length() == 2){
-            res += temp[1] +'/';
+        temp = "B20DCCN" + temp;
+        String edit[] = name.split("\\s+");
+        String name = "";
+        for(int i=0;i<edit.length;i++){
+            if(i != edit.length - 1)
+                name += edit[i].substring(0, 1).toUpperCase() + edit[i].substring(1) + " ";
+            else
+                name += edit[i].substring(0, 1).toUpperCase() + edit[i].substring(1);
         }
-        else{
-            res += '0' + temp[1] +'/';
-        }
-        res += temp[2];
-        System.out.print(res.toString() + " ");
-        
+        SimpleDateFormat formatter = new SimpleDateFormat("dd/mm/yyyy");
+        String date = formatter.format(this.dob);
+        return String.format("%s %s %s %s %.2f", temp, name, lop, date, gpa);
     }
+    
+    
 }

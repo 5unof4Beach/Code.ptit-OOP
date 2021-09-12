@@ -7,11 +7,16 @@ package lopsinhvien;
 import java.text.ParseException;
 import java.util.*;
 import lopsinhvien.SinhVien;
+import java.util.Comparator;
 
-public class DanhSachDoiTuongSV1 {
+/**
+ *
+ * @author suckm
+ */
+public class DanhSachDoiTuongSV3 {
     public static void main(String[] args) throws ParseException {
         Scanner sc = new Scanner(System.in);
-        int n = Integer.parseInt(sc.nextLine());        
+        int n = Integer.parseInt(sc.nextLine());
         Vector<SinhVien> res = new Vector<SinhVien>();
         for(int i = 1;i<=n;i++){
             String name = sc.nextLine();
@@ -21,9 +26,18 @@ public class DanhSachDoiTuongSV1 {
             SinhVien sv = new SinhVien(i,name,lop,dob,gpa);
             res.add(sv);
         }
+        Collections.sort(res, new SortDescending());
         for(SinhVien element:res){
             System.out.println(element.toString());
         }
-    
     }
+    
 }
+class SortDescending implements Comparator<SinhVien>{
+    public int compare(SinhVien s1,SinhVien s2){
+        if(s2.getGpa() > s1.getGpa())
+            return 1;
+        else
+            return -1;
+    }
+}    
