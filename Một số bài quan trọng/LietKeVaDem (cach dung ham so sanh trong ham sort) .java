@@ -11,8 +11,8 @@ import java.util.*;
  * @author suckm
  */
 public class LietKeVaDem {
+    public static HashMap<Long , Integer> valid = new HashMap<Long , Integer>();
     public static void main(String[] args) {
-        HashMap<Long , Integer> valid = new HashMap<Long , Integer>();
         Scanner sc = new Scanner(System.in);
         HashSet<Long> invalid = new HashSet<Long>();
         Vector<Long> res = new Vector<Long>();
