@@ -4,7 +4,7 @@ import java.util.Date;
 import java.text.SimpleDateFormat;
 
 public class SinhVien {
-    private String name,lop;
+    private String name,lop,email,strID;
     private Date dob;
     private int stuID;
     private float gpa;
@@ -26,13 +26,33 @@ public class SinhVien {
         this.dob = temp;
         this.gpa = gpa;
     }
+    
+    public SinhVien(String id,String name,String lop,String email) throws ParseException{
+        this.strID = id;
+//        lowercase và trim ngay tại đây
+        this.name = name;
+        this.lop = lop;
+        this.email = email;
+    }
 
     public String getName() {
         return name;
     }
 
+    public String getStrID() {
+        return strID;
+    }
+
     public void setName(String name) {
-        this.name = name;
+        String edit[] = name.split("\\s+");
+        String temp = "";
+        for(int i=0;i<edit.length;i++){
+            if(i != edit.length - 1)
+                temp += edit[i].substring(0, 1).toUpperCase() + edit[i].substring(1) + " ";
+            else
+                temp += edit[i].substring(0, 1).toUpperCase() + edit[i].substring(1);
+        }
+        this.name = temp;
     }
 
     public String getLop() {
@@ -67,17 +87,15 @@ public class SinhVien {
             temp += "0" +this.stuID;
         }
         temp = "B20DCCN" + temp;
-        String edit[] = name.split("\\s+");
-        String name = "";
-        for(int i=0;i<edit.length;i++){
-            if(i != edit.length - 1)
-                name += edit[i].substring(0, 1).toUpperCase() + edit[i].substring(1) + " ";
-            else
-                name += edit[i].substring(0, 1).toUpperCase() + edit[i].substring(1);
-        }
+        setName(name);
         SimpleDateFormat formatter = new SimpleDateFormat("dd/mm/yyyy");
         String date = formatter.format(this.dob);
         return String.format("%s %s %s %s %.2f", temp, name, lop, date, gpa);
+    }
+    
+    public void show(){
+        
+        System.out.printf("%s %s %s %s\n",strID,name,lop,email);
     }
     
     
