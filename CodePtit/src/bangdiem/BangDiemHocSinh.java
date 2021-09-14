@@ -19,7 +19,7 @@ public class BangDiemHocSinh {
             HocSinh hs = new HocSinh(i,sc);
             res.add(hs);
         }
-        Collections.sort(res , new myCompare());
+        res.sort(new myCompare());
         for(HocSinh element : res){
             element.show();
         }
