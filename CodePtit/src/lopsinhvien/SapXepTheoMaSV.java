@@ -14,11 +14,14 @@ public class SapXepTheoMaSV {
 
         while(sc.hasNextLine()){
             String ID = sc.nextLine();
+//            if(ID.equals("")) break;
             String name = sc.nextLine();
             String lop = sc.nextLine();
             String email = sc.nextLine();
             SinhVien sv = new SinhVien(ID,name,lop,email);
             res.add(sv);  
+//            System.out.println(sv.getName());
+//            sv.show();
         }
         
         res.sort((i1,i2) -> i1.getStrID().compareTo(i2.getStrID()));

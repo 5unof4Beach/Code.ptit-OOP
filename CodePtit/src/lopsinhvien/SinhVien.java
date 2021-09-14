@@ -4,7 +4,7 @@ import java.util.Date;
 import java.text.SimpleDateFormat;
 
 public class SinhVien {
-    private String name,lop,email,strID;
+    private String name,lop,email,strID,year;
     private Date dob;
     private int stuID;
     private float gpa;
@@ -29,10 +29,15 @@ public class SinhVien {
     
     public SinhVien(String id,String name,String lop,String email) throws ParseException{
         this.strID = id;
-//        lowercase và trim ngay tại đây
         this.name = name;
         this.lop = lop;
         this.email = email;
+    }
+
+    public String getYear() {
+        String temp = lop.substring(1,3);
+        this.year = "20"+ temp;
+        return year;
     }
 
     public String getName() {
@@ -57,6 +62,14 @@ public class SinhVien {
 
     public String getLop() {
         return lop;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public void setStrID(String strID) {
+        this.strID = strID;
     }
 
     public void setLop(String lop) {
