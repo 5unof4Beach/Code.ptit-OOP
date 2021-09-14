@@ -4,10 +4,10 @@ import java.util.Date;
 import java.text.SimpleDateFormat;
 
 public class SinhVien {
-    private String name,lop,email,strID,year;
+    private String name,lop,email,strID,year,company;
     private Date dob;
-    private int stuID;
-    private float gpa;
+    private int stuID,serial;
+    private float gpa,diem1,diem2,diem3;
     
     public SinhVien(){
         this.stuID = 0;
@@ -27,11 +27,39 @@ public class SinhVien {
         this.gpa = gpa;
     }
     
+    public SinhVien(String name,String dob) throws ParseException{
+        this.name = name;
+        Date temp = new SimpleDateFormat("dd/mm/yyyy").parse(dob);
+        this.dob = temp;
+    }
+
+    public Date getDob() {
+        return dob;
+    }
+    
     public SinhVien(String id,String name,String lop,String email) throws ParseException{
         this.strID = id;
         this.name = name;
         this.lop = lop;
         this.email = email;
+    }
+    
+    public SinhVien(int serial,String id,String name,String lop,String email,String company){
+        this.strID = id;
+        this.name = name;
+        this.lop = lop;
+        this.email = email;
+        this.serial = serial;
+        this.company = company;
+    }
+    
+    public SinhVien(String id,String name,String lop,float m1,float m2,float m3){
+        this.strID = id;
+        this.name = name;
+        this.lop = lop;
+        this.diem1 = m1;
+        this.diem2 = m2;
+        this.diem3 = m3;
     }
 
     public String getYear() {
@@ -83,7 +111,10 @@ public class SinhVien {
     public void setGpa(float gpa) {
         this.gpa = gpa;
     }
-    
+
+    public String getCompany() {
+        return company;
+    }
     
     
     public void setStuID(int stuID) {
@@ -107,8 +138,15 @@ public class SinhVien {
     }
     
     public void show(){
-        
         System.out.printf("%s %s %s %s\n",strID,name,lop,email);
+    }
+    
+    public void showInfoAndMarks(){
+        System.out.printf("%s %s %s %.1f %.1f %.1f\n",strID,name,lop,diem1,diem2,diem3);
+    }
+    
+    public void showInfoAndCompany(){
+        System.out.printf("%d %s %s %s %s %s \n",serial,strID,name,lop,email,company);
     }
     
     
