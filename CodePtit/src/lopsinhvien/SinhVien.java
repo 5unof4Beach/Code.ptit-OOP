@@ -22,14 +22,15 @@ public class SinhVien {
 //        lowercase và trim ngay tại đây
         this.name = name.toLowerCase().trim();
         this.lop = lop;
-        Date temp = new SimpleDateFormat("dd/mm/yyyy").parse(dob);
+        Date temp = new SimpleDateFormat("dd/MM/yyyy").parse(dob);
         this.dob = temp;
         this.gpa = gpa;
     }
     
     public SinhVien(String name,String dob) throws ParseException{
         this.name = name;
-        Date temp = new SimpleDateFormat("dd/mm/yyyy").parse(dob);
+        Date temp = new SimpleDateFormat("dd/MM/yyyy").parse(dob);
+//        SimpleDateFormat fm = new SimpleDateFormat("dd/mm/yyyy");
         this.dob = temp;
     }
 
@@ -132,7 +133,7 @@ public class SinhVien {
         }
         temp = "B20DCCN" + temp;
         setName(name);
-        SimpleDateFormat formatter = new SimpleDateFormat("dd/mm/yyyy");
+        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
         String date = formatter.format(this.dob);
         return String.format("%s %s %s %s %.2f", temp, name, lop, date, gpa);
     }

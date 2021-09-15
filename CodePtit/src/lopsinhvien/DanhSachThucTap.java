@@ -28,7 +28,7 @@ public class DanhSachThucTap {
             res.add(sv);
         }
         
-        res.sort((i1,i2)->i1.getName().compareTo(i2.getName()));
+        res.sort((i1,i2)->i1.getStrID().compareTo(i2.getStrID()));
         int q = Integer.parseInt(sc.nextLine());
         for(int i=0;i<q;i++){
             String companyName = sc.nextLine();
