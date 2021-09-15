@@ -7,23 +7,12 @@ public class HocSinh {
     private int id;
     private String name;
     
-    public HocSinh(int id,Scanner sc){
-        this.name = sc.nextLine();
+    public HocSinh(int id,String name,Double avg){
+        this.name = name;
         this.id = id;
-        setAvg(sc);
+        this.avg = avg;
     }
-    public void setAvg(Scanner sc){
-        double sum = 0,temp=0;
-        for(int i=0;i<10;i++){
-            temp = sc.nextDouble();
-            if(i==0 || i==1){
-                sum += temp * 2;
-            }
-            else sum += temp;
-        }
-        sc.nextLine();
-        avg = Math.round((sum/12)*10.0)/10.0;
-    }
+    
     
     public double getAvg(){
         return avg;
