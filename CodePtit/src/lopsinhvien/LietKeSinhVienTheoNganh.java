@@ -25,7 +25,6 @@ public class LietKeSinhVienTheoNganh {
             
         }
 
-
         int q = Integer.parseInt(sc.nextLine());
         for(int i=0;i<q;i++){
             String temp = sc.nextLine();
@@ -33,10 +32,10 @@ public class LietKeSinhVienTheoNganh {
             System.out.println("DANH SACH SINH VIEN NGANH " + temp.toUpperCase() + ":");
             for(SinhVien element:res){
                 if( element.getStrID().contains(major))
-//                    if(element.getLop().charAt(0) == 'E'){
-//                        continue;
-//                    }
-//                    else
+                    if(element.getLop().charAt(0) == 'E' && (major.equals("DCCN")|| major.equals("DCAT"))){
+                        continue;
+                    }
+                    else
                     element.show();
             }
         }
