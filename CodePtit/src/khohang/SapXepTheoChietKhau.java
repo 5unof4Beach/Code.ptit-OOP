@@ -6,7 +6,7 @@ import java.util.*;
  *
  * @author suckm
  */
-public class BangKenhapKho {
+public class SapXepTheoChietKhau {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int n = Integer.parseInt(sc.nextLine());
@@ -27,7 +27,7 @@ public class BangKenhapKho {
             Product pr = new Product(productNameCode.get(cd), cd, name, amount, price);
             res.add(pr);
         }
-        
+        res.sort((i1,i2)->Integer.compare(i2.getPercentExtract(), i1.getPercentExtract()));
         for(Product i:res){
             i.show();
         }
