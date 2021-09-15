@@ -22,7 +22,7 @@ public class HocSinh {
             else sum += temp;
         }
         sc.nextLine();
-        avg = sum/12;
+        avg = Math.round((sum/12)*10.0)/10.0;
     }
     
     public double getAvg(){

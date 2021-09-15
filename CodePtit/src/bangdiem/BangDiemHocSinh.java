@@ -19,16 +19,10 @@ public class BangDiemHocSinh {
             HocSinh hs = new HocSinh(i,sc);
             res.add(hs);
         }
-        res.sort(new myCompare());
+        res.sort((i1,i2)->Double.compare(i2.getAvg(), i1.getAvg()));
         for(HocSinh element : res){
             element.show();
         }
     }
 }
 
-class myCompare implements Comparator<HocSinh>{
-    public int compare(HocSinh h1,HocSinh h2){
-        if(h1.getAvg() < h2.getAvg()) return 1;
-        else return -1;
-    }          
-}
