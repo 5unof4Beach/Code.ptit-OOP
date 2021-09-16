@@ -1,14 +1,6 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package bangdiem;
 import java.util.*;
-/**
- *
- * @author suckm
- */
+
 public class BangDiemHocSinh {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
@@ -27,8 +19,7 @@ public class BangDiemHocSinh {
                 }
             }
             sc.nextLine();
-            avg /= 12;
-            HocSinh hs = new HocSinh(i,name,avg);
+            HocSinh hs = new HocSinh(i,name,avg/12.0);
             res.add(hs);
             
         }
@@ -38,4 +29,46 @@ public class BangDiemHocSinh {
         }
     }
 }
+
+
+class HocSinh {
+    private double avg;
+    private int id;
+    private String name;
+    
+    public HocSinh(int id,String name,Double avg){
+        this.name = name;
+        this.id = id;
+        this.avg = avg;
+    }
+    
+    
+    public double getAvg(){
+        avg = Math.round(avg*10)/10.0;
+        return avg;
+//        return avg;
+    }
+    
+    public String ranking(double avg){
+        if(avg >= 9) return "XUAT SAC";
+        else if(avg >= 8) return "GIOI";
+        else if(avg >= 7) return "KHA";
+        else if(avg >= 5) return "TB";
+        else return "YEU";
+    }
+    
+    public String toString(){
+        String ID = "";
+        if(id<10) ID = "0" + id;
+        else ID += id;
+        
+        return String.format("HS%s %s %.1f %s",ID,name,avg,ranking(avg));
+    }
+    
+    public void show(){
+        System.out.println(toString());
+    }
+    
+}
+
 
