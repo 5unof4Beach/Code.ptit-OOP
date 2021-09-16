@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package codeptit;
 import java.util.*;
 /**
@@ -14,43 +9,34 @@ public class BoBaSoPytago {
         Scanner sc = new Scanner(System.in);
         int t = sc.nextInt();
         while(t-->0){
-            
             int n = sc.nextInt();
-            Boolean exist = false;
-            Vector<Long> data = new Vector<Long>();
-            Hashtable<Long , Integer> hash = new Hashtable<Long , Integer>();
-            
-            for(int i = 0;i<n;i++){
-                long temp = sc.nextLong();
-                temp *= temp;
-                data.add(temp);
-                if (hash.contains(temp)){
-                    hash.put(temp,hash.get(temp) + 1);
-                }
-                else{
-                    hash.put(temp,1);
-                }
+            long[] arr = new long[n];
+            for(int i = 0; i < n; i++){
+                arr[i] = sc.nextInt();
             }
-    //        System.out.println(hash);
-    //        System.out.println(data.elementAt(0));
-            long temp = 0;
-            for(int i = 0;i<n-1;i++){
-                for(int j = i+1;j<n;j++){
-                    if(hash.containsKey(data.elementAt(i) + data.elementAt(j))){
-    //                    System.out.println("Yes");
-                        exist = true;
-                        break;
-                    }
-                }
-                if(exist) break;
-            }
-
-            if(exist){
+            if(check(n, arr)){
                 System.out.println("YES");
-            }
-            else{
+            }else{
                 System.out.println("NO");
             }
         }
+    }
+    
+     public static boolean check(int n, long[] arr){
+        for(int i = 0; i < n; i++)
+            arr[i] = arr[i] * arr[i];
+        Arrays.sort(arr);
+        for(int i=n-1; i>=2; i--){
+            int l = 0, r = i;
+            while(l < r){
+                if(arr[l] + arr[r] == arr[i])
+                    return true;
+                if(arr[l] + arr[r] < arr[i])
+                    l++;
+                else
+                    r--;
+            }
+        }
+        return false;
     }
 }
