@@ -19,6 +19,11 @@ public class Employee {
         setMonthlySalary();
         setPrize();
         this.tempEarn = getTempEarn();
+        
+    }
+
+    public void setFinalPay() {
+        finalPay = monthlySalary + prize + allowance;
     }
     
     public Employee(int ID,String name,long salary,long workDays,String pos){
@@ -89,7 +94,7 @@ public class Employee {
     }
     
     public void show2(){
-        finalPay = monthlySalary + prize + allowance;
+//        finalPay = monthlySalary + prize + allowance;
         System.out.printf("%s %s %d %d %d %d\n",ID,name,monthlySalary,
                 prize,allowance,finalPay);
     }
