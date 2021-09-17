@@ -1,9 +1,6 @@
 package lopchucvu;
 import java.util.*;
-/**
- *
- * @author suckm
- */
+
 public class BangKeTienLuong {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
