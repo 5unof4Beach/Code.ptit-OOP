@@ -20,7 +20,7 @@ public class SapXepTheoThuNhap {
             Employee em = new Employee(i,name,pos,sal,days);
             res.add(em);
         }
-        res.sort( (i1,i2)-> Integer.compare(i2.getMonthlySalary()+i2.getAllowance(), i1.getMonthlySalary()+i1.getAllowance()));
+        res.sort( (i1,i2)-> Long.compare(i2.getMonthlySalary()+i2.getAllowance(), i1.getMonthlySalary()+i1.getAllowance()));
         for(Employee i:res){
             i.show();
         }

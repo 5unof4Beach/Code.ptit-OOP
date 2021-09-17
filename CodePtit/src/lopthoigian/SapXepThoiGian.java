@@ -19,19 +19,10 @@ public class SapXepThoiGian {
             Hour hr = new Hour(hour,min,sec);
             res.add(hr);
         }
-        Collections.sort(res,new hourSort());
+        res.sort((i1,i2)->Integer.compare(i1.getSum(), i2.getSum()));
         for(Hour element : res){
             element.show();
         }
     }
 }
 
-class hourSort implements Comparator<Hour>{
-    public int compare(Hour h1,Hour h2){
-        if(h1.getSum() > h2.getSum()){
-            return 1;
-        }
-        else
-            return -1;
-    }
-}
