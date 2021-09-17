@@ -61,7 +61,7 @@ public class NhanVien {
     }
 
     public void setDob(String dob) throws ParseException {
-        Date temp = new SimpleDateFormat("dd/mm/yyyy").parse(dob);
+        Date temp = new SimpleDateFormat("dd/MM/yyyy").parse(dob);
         this.dob = temp;
     }
 
