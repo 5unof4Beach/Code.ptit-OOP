@@ -26,23 +26,23 @@ public class HotelCustomer {
         setTotalPay();
     }
 
-    public void setFloor(String room) {
+    private void setFloor(String room) {
         this.floor = room.substring(0,1);
     }
 
-    public void setPrice() {
+    private void setPrice() {
         if(floor.equals("1")) price = 25;
         else if(floor.equals("2")) price = 34;
         else if(floor.equals("3")) price = 50;
         else price = 80;
     }
 
-    public void setDaysStay() {
+    private void setDaysStay() {
         long timeStayInSeconds = (dayReturn.getTime() - dayReceive.getTime())/1000;
         daysStay = timeStayInSeconds/(24*3600) + 1;
     }
 
-    public void setTotalPay() {
+    private void setTotalPay() {
         this.totalPay = daysStay * price + exceed;
     }
 
