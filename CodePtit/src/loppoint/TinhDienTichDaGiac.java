@@ -16,6 +16,7 @@ public class TinhDienTichDaGiac {
                 pointSet.add(p);
             }
             findArea(pointSet);
+            
         }
     }
     
