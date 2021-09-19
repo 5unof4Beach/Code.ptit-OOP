@@ -27,8 +27,8 @@ public class TinhDienTichDaGiac {
             sum_1 += pointSet.get(i).getX() * pointSet.get(i+1).getY();
             sum_2 += pointSet.get(i).getY() * pointSet.get(i+1).getX();
         }
-        sum_1 += pointSet.getLast().getX()*pointSet.getFirst().getY();
-        sum_2 += pointSet.getLast().getY()*pointSet.getFirst().getX();
+        sum_1 += pointSet.getLast().getX() * pointSet.getFirst().getY();
+        sum_2 += pointSet.getLast().getY() * pointSet.getFirst().getX();
         Double Area = (sum_1-sum_2)/2.0;
         System.out.printf("%.3f\n",Area);
     }
