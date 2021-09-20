@@ -17,36 +17,31 @@ public class DienThoaiCucGach {
     
     public static String getNumber(String str){
         String res = "";
-        str = str.toLowerCase();
         for(int i=0;i<str.length();i++){
-            res += sol(str.charAt(i));
+            char c = Character.toUpperCase(str.charAt(i));
+            if(c == 'A' || c == 'B' || c == 'C') res += '2';
+            else if(c == 'D' || c == 'E' || c == 'F') res += '3';
+            else if(c == 'G' || c == 'H' || c == 'I') res += '4';
+            else if(c == 'J' || c == 'K' || c == 'L') res += '5';
+            else if(c == 'M' || c == 'N' || c == 'O') res += '6';
+            else if(c == 'P' || c == 'Q' || c == 'R' || c == 'S') res += '7';
+            else if(c == 'T' || c == 'U' || c == 'V') res += '8';
+            else if(c == 'W' || c == 'X' || c == 'Y' || c == 'Z') res += '9';
         }
         return res;
     }
     
-    public static String sol(char c){
-        if(c == 'a' || c == 'b'||c=='c') return "2";
-        else if(c=='d' || c=='e'||c=='f') return "3";
-        else if(c=='g' || c=='h'||c=='i') return "4";
-        else if(c=='k' || c=='j'||c=='l') return "5";
-        else if(c=='m' || c=='n'||c=='o') return "6";
-        else if(c=='p'||c=='q' || c=='r'||c=='s') return "7";
-        else if(c=='t' || c=='u'||c=='v') return "8";
-        else return "9";
-        
-    }
-    public static void check(String num){
-        boolean flag = true;
-        int n = num.length();
-        for(int i=0;i<n/2;i++){
-            if(num.charAt(i) != num.charAt(n-i-1))
-                flag = false;
+    public static void check(String s){
+         int flag = 1;
+        for(int i = 0; i < s.length()/2; i++){
+            if(s.charAt(i) != s.charAt(s.length() - i - 1)){
+                flag = 0;
                 break;
+            }
         }
-        if(flag){
+        if(flag == 1){
             System.out.println("YES");
-        }
-        else{
+        }else{
             System.out.println("NO");
         }
     }

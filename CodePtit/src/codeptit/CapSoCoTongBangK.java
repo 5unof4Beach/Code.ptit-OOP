@@ -10,7 +10,7 @@ public class CapSoCoTongBangK {
             HashMap<Long , Integer> hash = new HashMap<Long , Integer>();
             int n1 = sc.nextInt();
             long sum = sc.nextLong();
-            int count = 0;
+            long count = 0;
             long arr[] = new long[n1];
             for(int i = 0; i<n1; i++){
                 arr[i] = sc.nextLong();
@@ -18,7 +18,7 @@ public class CapSoCoTongBangK {
                     hash.put(arr[i],hash.get(arr[i])+1);
                 }
                 else{
-                    hash.put(arr[i],1);
+                    hash.put(arr[i], 1);
                 }
             }
             for(int i=0;i<n1;i++){
@@ -26,10 +26,10 @@ public class CapSoCoTongBangK {
                     count += hash.get(sum - arr[i]);
                 }
     //      tranh truong hop trung so
-                if(sum - arr[i] == arr[i]) count--;
+                if(sum - arr[i] == arr[i]) count -= 1;
             }
     //      ly do vi moi cap dem 2 lan 
-            int res = count / 2;
+            long res = count / 2;
             System.out.println(res);
             
         }
