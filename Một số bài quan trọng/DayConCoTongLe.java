@@ -1,9 +1,3 @@
-//Special thanks to my firend Nguyễn Xuân Thiệu
-
-
-
-
-
 package codeptit;
 
 import java.util.Arrays;

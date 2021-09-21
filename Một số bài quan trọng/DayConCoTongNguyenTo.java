@@ -1,15 +1,9 @@
-//Special thanks to my firend Nguyễn Xuân Thiệu
-
-
-
-
-
 package codeptit;
 
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class DayConCoTongLe {
+public class DayConCoTongNguyenTo{
     public static int n;
     public static int Y[] = new int[100];
     public static int X[] = new int[100];
@@ -31,7 +25,7 @@ public class DayConCoTongLe {
                 int s = 0;
                 s += X[i];
                 Y[count++] = X[i];
-                if(s % 2 != 0)
+                if(isPrime(s))
                     print(count);
                 solution(i, count, s);
             }
@@ -44,7 +38,7 @@ public class DayConCoTongLe {
             int first = count;
             s += X[j];
             Y[count++] = X[j];
-            if(s % 2 != 0)
+            if(isPrime(s))
                 print(count);
             if(j < n - 1)
                 solution(j, count, s);
@@ -61,4 +55,11 @@ public class DayConCoTongLe {
         System.out.println();
     }
     
+    static boolean isPrime(int n){
+        if(n<2) return false;
+        for(int i=2;i<=(long)Math.sqrt(n);i++){
+            if(n % i ==0) return false;
+        }
+        return true;
+    }
 }
