@@ -20,19 +20,19 @@ public class DayConCoTongLe {
             for(int i = 0; i < n; i ++){
                 X[i] = temp[n-i-1];
             }
-            for(int i = n - 1; i >= 0; i --) {
+            for(int i = n - 1; i >= 0; i --){
                 int count = 0;
                 int s = 0;
                 s += X[i];
-                Y[count ++] = X[i];
+                Y[count++] = X[i];
                 if(s % 2 != 0)
                     print(count);
-                solution(i, n, count, s);
+                solution(i, count, s);
             }
         }
     }
     
-    static void solution(int i, int n, int count, int s) {
+    static void solution(int i, int count, int s){
         int j = n - 1;
         while(j > i) {
             int first = count;
@@ -41,7 +41,7 @@ public class DayConCoTongLe {
             if(s % 2 != 0)
                 print(count);
             if(j < n - 1)
-                solution(j, n, count, s);
+                solution(j, count, s);
             for(int k = first; k < count; k ++)
                 s -= Y[k];
             count = first;
