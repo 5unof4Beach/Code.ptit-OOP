@@ -3,10 +3,6 @@ package TongDaThuc;
 import java.util.*;
 import java.util.StringTokenizer;
 
-/**
- *
- * @author suckm
- */
 public class DaThuc {
     private String s;
     private HashMap<Long,Long> heSoVaBac = new HashMap<Long,Long>();
