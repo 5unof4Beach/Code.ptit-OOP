@@ -7,27 +7,31 @@ public class DayDuCacChuSo {
     
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        generateSample();
         int t = sc.nextInt();
         sc.nextLine();
+        generateSample();
         while(t-->0){
             long n = sc.nextLong();
             sc.nextLine();
-            int i=2;
-            if(n==0){
-                System.out.println("Impossible");
-                continue;
-            }
-            if(isFull(n)){
-                System.out.println(n);
-                continue;
-            }
-            while(!isFull(n*i)){
-                i++;
-            }
-            System.out.println(n*i);
+            res(n);
             digit.clear();
         }
+    }
+    
+    public static void res(Long n){
+        int i=2;
+        if(n==0){
+            System.out.println("Impossible");
+            return;
+        }
+        if(isFull(n)){
+            System.out.println(n);
+            return;
+        }
+        while(!isFull(n*i)){
+            i++;
+        }
+        System.out.println(n*i);
     }
     
     public static boolean isFull(long n){
