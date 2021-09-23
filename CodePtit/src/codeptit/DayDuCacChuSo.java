@@ -20,7 +20,7 @@ public class DayDuCacChuSo {
             }
             if(isFull(n)){
                 System.out.println(n);
-                return;
+                continue;
             }
             while(!isFull(n*i)){
                 i++;
@@ -33,9 +33,7 @@ public class DayDuCacChuSo {
     public static boolean isFull(long n){
         while(n > 0){
             if(digit.contains((int)n%10));
-            else {
-                digit.add((int)n%10);
-            }
+            else digit.add((int)n%10);
             n/=10;
         }
         return digit.containsAll(sample);
