@@ -10,6 +10,7 @@ public class DaThuc {
         this.s = s;
         setHeSoVaBac();
     }
+    
     public DaThuc(HashMap<Long,Long> heSoVaBac){
         this.heSoVaBac = heSoVaBac;
     }
@@ -26,7 +27,6 @@ public class DaThuc {
             String heSo = temp.substring(0,temp.indexOf('*'));
             heSoVaBac.put(convert(bac),convert(heSo));
         }
-        this.heSoVaBac = heSoVaBac;
     }
     
     public long convert(String s){
@@ -36,6 +36,7 @@ public class DaThuc {
         }
         return res;
     }
+    
     public DaThuc cong(DaThuc temp){
         long n =0;
         Iterator<Long> i = temp.getHeSoVaBac().keySet().iterator();
@@ -50,6 +51,7 @@ public class DaThuc {
         }
         return new DaThuc(heSoVaBac);
     }
+    
     @Override
     public String toString(){
         Iterator i = heSoVaBac.entrySet().iterator();
@@ -60,9 +62,11 @@ public class DaThuc {
             Map.Entry j = (Map.Entry)i.next();
             listToResort.add(j);
         }
+        
 //   vì một lí do nào đó mà số mũ 10000 in ra ko đúng thứ tự nên phải sort lại
         listToResort.sort((i1,i2)->Long.compare(convert(i2.getKey().toString()),
-                                        convert(i1.getKey().toString())));
+                                                convert(i1.getKey().toString())));
+        
         for(Map.Entry j:listToResort){
             res = j.getValue() + "*x^" + j.getKey();
             temp.add(res);
