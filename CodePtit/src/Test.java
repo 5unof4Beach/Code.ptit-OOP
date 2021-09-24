@@ -25,6 +25,6 @@ public class Test {
         for(int i=0;i<s.length();i++){
             res = res*10 + (s.charAt(i) - '0');
         }
-        return res;
+       return res;
     }
 }
