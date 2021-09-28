@@ -63,6 +63,10 @@ public class Athlete {
     public long getTimeCompleteInSeconds() {
         return timeCompleteInSeconds;
     }
+
+    public String getID() {
+        return ID;
+    }
     
     public void show(){
         SimpleDateFormat HourFormatter = new SimpleDateFormat("HH:mm:ss");
