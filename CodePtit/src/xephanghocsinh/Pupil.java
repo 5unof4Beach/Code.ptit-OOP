@@ -16,6 +16,10 @@ public class Pupil {
         return rank;
     }
 
+    public String getID() {
+        return ID;
+    }
+
     public void setRank(int rank) {
         this.rank = rank;
     }
