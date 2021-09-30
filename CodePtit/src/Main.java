@@ -1,6 +1,7 @@
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.Scanner;
 
@@ -86,12 +87,23 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) throws ParseException {
         Scanner sc = new Scanner(System.in);
-        while(true){
-            String s = sc.nextLine();
-            Date d = new SimpleDateFormat("dd/MM/yyyy").parse(s);
-            SimpleDateFormat f = new SimpleDateFormat("yyyy");
-            System.out.println(f.format(d));
+        int n = sc.nextInt();
+        String res = "";
+        sc.nextLine();
+        Integer mat[][] = new Integer[n][n];
+        for(int i=0;i<n;i++){
+            for(int j=0;j<n;j++){
+                mat[i][j] = sc.nextInt();
+            }
         }
+        for(int i=0;i<n;i++){
+            for(int j=0;j<n;j++){
+                res += mat[i][j] + " ";
+            }
+            res += "\n";
+        }
+        
+        System.out.println(res);
     }
 
 }

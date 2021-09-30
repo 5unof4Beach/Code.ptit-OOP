@@ -34,7 +34,10 @@ public class Employee {
     public String getSalaryRank() {
         return salaryRank;
     }
-
+    public String getNameInLower(){
+        return name.toLowerCase();
+//        return name;
+    }
     public String getNumber() {
         return number;
     }
