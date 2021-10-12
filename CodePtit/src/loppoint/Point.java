@@ -1,5 +1,7 @@
 package loppoint;
 
+import java.util.Scanner;
+
 public class Point {
     private double x,y;
     
@@ -8,6 +10,11 @@ public class Point {
         this.y = 1;
     }
     public Point(double x , double y){
+        this.x = x;
+        this.y = y;
+    }
+    
+    public Point(int x , int y){
         this.x = x;
         this.y = y;
     }
@@ -40,5 +47,11 @@ public class Point {
         double deltaX = Math.abs(p1.getX() - p2.getX());
         double deltaY = Math.abs(p1.getY() - p2.getY());
         return(Math.sqrt(Math.pow(deltaX, 2) + Math.pow(deltaY, 2)));
+    }
+    
+    public static String nextPoint(Scanner sc){
+        double a = Double.parseDouble(sc.next());
+        double b = Double.parseDouble(sc.next());
+        return a + " " + b;
     }
 }
