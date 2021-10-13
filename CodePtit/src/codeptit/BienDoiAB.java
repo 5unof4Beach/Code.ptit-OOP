@@ -5,40 +5,51 @@ import java.util.*;
 public class BienDoiAB {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        String s = sc.nextLine();
-        StringBuilder st = new StringBuilder(s);
+        String st = sc.nextLine();
         int countChar = 1;
         int groupCount = 1;
+        char firstChar = st.charAt(0);
         for(int i=0;i<st.length()-1;i++){
-            if(st.charAt(i) == st.charAt(i+1)){
+            if(st.charAt(0) != st.charAt(1)){
+                firstChar = getChar(st.charAt(0));
+                groupCount--;
+            }
+            else if(st.charAt(i) == st.charAt(i+1)){
                 countChar++;
             }
             else{
                 if(countChar == 1){
-                    st.replace(i, i+1, replace(st.charAt(i)));
+                    groupCount -= 2;
                 }
                 countChar = 1;
                 groupCount++;
             }
         }
-//        System.out.println(st);
-        s = st.toString();
-        solution(s, groupCount);
+        solution(st, groupCount, firstChar);
     }
-    public static String replace(char c){
-        if(c == 'A') return "B";
-        return "A";
+    
+    public static char getChar(char c){
+        if(c == 'A') return 'B';
+        return 'A';
     }
-    public static void solution(String s,int groupCount){
+    
+    public static void solution(String s,int groupCount,char startChar){
         int res = 0;
-        char startChar = s.charAt(0);
         if(startChar == 'A'){
-            if(groupCount % 2 == 0) res = groupCount;
-            else res = groupCount - 2;
+            if(groupCount == 1){
+                res = 0;
+            }
+            else{
+                res = groupCount - 1;
+            }
         }
         else{
-            if(groupCount % 2 == 0) res = groupCount-2;
-            else res = groupCount;
+            if(groupCount == 1){
+                res = 1;
+            }
+            else{
+                res = groupCount;
+            }
         }
         System.out.println(res);
     }
