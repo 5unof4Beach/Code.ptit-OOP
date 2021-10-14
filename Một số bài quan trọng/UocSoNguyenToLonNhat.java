@@ -12,7 +12,7 @@ import java.util.*;
 public class UocSoNguyenToLonNhat {
     
     public static boolean isPrime(long n){
-        for(int i = 2;i<=(long)Math.sqrt(n)+1;i++){
+        for(int i = 2;i<=(long)Math.sqrt(n);i++){
             if(n % i ==0) return false;
         }
         return true;
