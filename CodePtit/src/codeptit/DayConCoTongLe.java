@@ -1,8 +1,4 @@
-//Special thanks to my firend Nguyễn Xuân Thiệu
-
-
-
-
+//Special thanks to my friend Nguyễn Xuân Thiệu
 
 package codeptit;
 
