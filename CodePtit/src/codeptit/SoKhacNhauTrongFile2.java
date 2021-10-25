@@ -1,4 +1,4 @@
-package Doc_File_Van_ban;
+package codeptit;
 
 import java.io.*;
 import java.util.Scanner;

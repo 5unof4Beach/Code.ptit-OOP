@@ -1,20 +1,25 @@
 package Doc_File_Van_ban;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.TreeMap;
 import java.util.Vector;
 
-public class ThongKeTuKhacNhauTrongVanBan {
-    public static void main(String[] args) throws FileNotFoundException {
-        Scanner sc = new Scanner(new File("VANBAN.in"));
+
+public class ThongKeTuKhacNhauTrongFileNhiPhan {
+    public static void main(String[] args) throws FileNotFoundException, IOException, ClassNotFoundException {
+        FileInputStream f2 = new FileInputStream("DATA.in");
+        ObjectInputStream din = new ObjectInputStream(f2);
+        ArrayList<String> data = (ArrayList<String>) din.readObject();
         TreeMap<String,Integer> words = new TreeMap<>();
         Vector<String> v = new Vector<>();
-        int n = Integer.parseInt(sc.nextLine());
-        while(n-->0){
-            String temp = sc.nextLine().toLowerCase();
-            String arr[] = temp.split("\\W+");
+        for(String j:data){
+            String arr[] = j.toLowerCase().split("\\W+");
             for(String i:arr){
                 if(!words.containsKey(i) && !i.equals("")){
                     words.put(i, 1);
