@@ -49,7 +49,7 @@ class WordSet {
         for(String i:res){
             resStr += i + " ";
         }
-        return resStr;
+        return resStr.trim();
     }
     
     public String intersection(WordSet s2){
@@ -66,6 +66,6 @@ class WordSet {
         for(String i:res){
             resStr += i + " ";
         }
-        return resStr;
+        return resStr.trim();
     }
 }

@@ -26,15 +26,16 @@ public class LopPair {
     }
 }
 
-class Pair{
-    private int a,b;
+class Pair<T, S>{
+    private T a;
+    private S b;
 
-    public Pair(int a, int b) {
+    public Pair(T a, S b) {
         this.a = a;
         this.b = b;
     }
     
-    public  boolean check(int n){
+    public  boolean check(Integer n){
         if(n < 2) return false;
         for(int i=2;i<=(int)Math.sqrt(n);i++){
             if(n%i == 0) return false;
@@ -43,12 +44,37 @@ class Pair{
     }
     
     public boolean isPrime(){
-        if(check(a) && check(b)) return true;
-        return false;
+        return check((Integer)a) && check((Integer)b);
     }
     
     @Override
     public String toString(){
-        return a+" "+b;
+        return a + " " + b;
     }
 }
+//class Pair{
+//    private int a,b;
+//
+//    public Pair(int a, int b) {
+//        this.a = a;
+//        this.b = b;
+//    }
+//    
+//    public  boolean check(int n){
+//        if(n < 2) return false;
+//        for(int i=2;i<=(int)Math.sqrt(n);i++){
+//            if(n%i == 0) return false;
+//        }
+//        return true;
+//    }
+//    
+//    public boolean isPrime(){
+//        if(check(a) && check(b)) return true;
+//        return false;
+//    }
+//    
+//    @Override
+//    public String toString(){
+//        return a+" "+b;
+//    }
+//}
