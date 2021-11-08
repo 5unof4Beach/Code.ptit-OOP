@@ -1,31 +1,36 @@
 package WORDSET;
 
-import java.util.*;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.Scanner;
+import java.util.TreeSet;
 
 /**
  *
  * @author suckm
  */
-public class Main {
-    public static void main(String[] args) {
-        Scanner in = new Scanner(System.in);
-        WordSet s1 = new WordSet(in.nextLine());
-        WordSet s2 = new WordSet(in.nextLine());
+public class HopVaGiaoHaiFileVanBan {
+    public static void main(String[] args) throws IOException {
+        WordSet s1 = new WordSet("DATA1.in");
+        WordSet s2 = new WordSet("DATA2.in");
         System.out.println(s1.union(s2));
         System.out.println(s1.intersection(s2));
     }
 }
 
-
 class WordSet {
     private String dataIn;
     private TreeSet<String> words = new TreeSet<>();
 
-    public WordSet(String dataIn) {
-        this.dataIn = dataIn.toLowerCase();
-        String temp[] = dataIn.toLowerCase().split(" ");
-        for(String i:temp){
-            words.add(i);
+    public WordSet(String path) throws FileNotFoundException {
+        Scanner sc = new Scanner(new File(path));
+        while(sc.hasNextLine()){
+            this.dataIn = sc.nextLine().toLowerCase();
+            String temp[] = dataIn.toLowerCase().split(" ");
+            for(String i:temp){
+                words.add(i);
+            }
         }
     }
     public TreeSet getWords() {
@@ -61,3 +66,4 @@ class WordSet {
         return resStr.trim();
     }
 }
+

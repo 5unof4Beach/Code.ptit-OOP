@@ -1,4 +1,4 @@
-package tinh_gio_chuan_giang_vien;
+package TinhGioChuanGiangVien;
 
 import java.util.Scanner;
 import java.util.Vector;
@@ -7,7 +7,7 @@ import java.util.Vector;
  *
  * @author suckm
  */
-public class TinhGioChuanChoTungGiangVien {
+public class BanTinhGioChuan {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         Vector<Subject> subjects = new Vector<>();
@@ -34,31 +34,11 @@ public class TinhGioChuanChoTungGiangVien {
             for(Lecturer i:lecturers){
                 if(ta.getLecturerID().equals(i.getId())){
                     i.addTime(ta.getHours());
-                    ta.setLecturer(i);
-                }
-            }
-            
-            for(Subject j:subjects){
-                if(ta.getSubjectID().equals(j.getId())){
-                    ta.setSubject(j);
                 }
             }
         }
-        String id = sc.nextLine();
-        Lecturer tmp = new Lecturer("", "");
-        for(Table i:tables){
-            if(i.getLecturerID().equals(id)){
-                System.out.printf("Giang vien: %s\n",i.getLecturer().getName());
-                tmp = i.getLecturer();
-                break;
-            }
+        for(Lecturer i:lecturers){
+            i.show();
         }
-        for(Table i:tables){
-            if(i.getLecturerID().equals(id)){
-                i.getSubject().show();
-                System.out.println(" " + i.getHours());
-            }
-        }
-        tmp.showTotalTime();
     }
 }

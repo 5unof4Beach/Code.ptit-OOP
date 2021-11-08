@@ -11,9 +11,18 @@ public class Member {
         this.phoneNum = phoneNum;
         this.team = team;
     }
+    public Member(String ID, String name, String phoneNum) {
+        this.ID = ID;
+        this.name = name;
+        this.phoneNum = phoneNum;
+    }
 
     public void setSubject(String subject) {
         this.subject = subject;
+    }
+
+    public void setTeam(int team) {
+        this.team = team;
     }
 
     public String getID() {

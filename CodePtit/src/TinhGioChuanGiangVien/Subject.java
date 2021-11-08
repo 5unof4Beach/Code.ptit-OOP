@@ -1,4 +1,4 @@
-package tinh_gio_chuan_giang_vien;
+package TinhGioChuanGiangVien;
 
 /**
  *
