@@ -10,13 +10,13 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
 import javax.swing.*;
+
 public class MyFrame extends JFrame{
 
     public MyFrame(String title) throws HeadlessException, IOException {
         super(title);
         setLayout(new BorderLayout());
         JTextField text = new JTextField("0");
-//        text.setSize(WIDTH, 60);
         text.setAlignmentY(RIGHT_ALIGNMENT);
         add(text, BorderLayout.NORTH);
         
