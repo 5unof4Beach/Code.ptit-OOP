@@ -9,7 +9,7 @@ public class Product {
     private long buyPrice, sellPrice, profit;
 
     public Product(int i, String name, String unit, long buyPrice, long sellPrice) {
-        id = String.format("MH%03d",i);
+        id = String.format("MH%02d",i);
         this.name = name;
         this.unit = unit;
         this.buyPrice = buyPrice;
