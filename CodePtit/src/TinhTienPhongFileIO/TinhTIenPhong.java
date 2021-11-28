@@ -16,7 +16,7 @@ public class TinhTIenPhong {
             String room = sc.nextLine();
             String dayIn = sc.nextLine();
             String dayOut = sc.nextLine();
-            long extras = Long.parseLong(sc.nextLine());
+            int extras = Integer.parseInt(sc.nextLine());
             Customer c = new Customer(i, name, room, dayIn, dayOut, extras);
             customers.add(c);
         }
@@ -30,9 +30,10 @@ public class TinhTIenPhong {
 class Customer {
     private String name, room, id;
     private Date dayIn, dayOut;
-    private long extras, dayStay, totalPay;
+    private int extras;
+    private long dayStay, totalPay;
 
-    public Customer(int i, String name, String room, String dayIn, String dayOut, long extras) throws ParseException {
+    public Customer(int i, String name, String room, String dayIn, String dayOut, int extras) throws ParseException {
         this.id = String.format("KH%02d", i);
         this.name = stdize(name);
         this.room = room;
