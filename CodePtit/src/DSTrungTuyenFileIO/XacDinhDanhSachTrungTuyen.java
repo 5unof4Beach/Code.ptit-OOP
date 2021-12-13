@@ -9,11 +9,11 @@ public class XacDinhDanhSachTrungTuyen {
         long t = Long.parseLong(sc.nextLine());
         Vector<Candidate> res = new Vector<Candidate>();
         for(int i=0;i<t;i++){
-            String id = sc.nextLine();
-            String name = sc.nextLine();
-            double math = Double.parseDouble(sc.nextLine());
-            double phy = Double.parseDouble(sc.nextLine());  //sc.nextDouble()
-            double chem = Double.parseDouble(sc.nextLine());
+            String id = sc.nextLine().trim();
+            String name = sc.nextLine().trim();
+            double math = Double.parseDouble(sc.nextLine().trim());
+            double phy = Double.parseDouble(sc.nextLine().trim());  //sc.nextDouble()
+            double chem = Double.parseDouble(sc.nextLine().trim());
             Candidate ca = new Candidate(id,name,math,phy,chem);
             res.add(ca);
         }

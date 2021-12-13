@@ -12,11 +12,11 @@ public class TinhTIenPhong {
         ArrayList<Customer> customers = new ArrayList<>();
         int t = Integer.parseInt(sc.nextLine());
         for(int i = 1; i<=t; i++){
-            String name = sc.nextLine();
-            String room = sc.nextLine();
-            String dayIn = sc.nextLine();
-            String dayOut = sc.nextLine();
-            int extras = Integer.parseInt(sc.nextLine());
+            String name = sc.nextLine().trim();
+            String room = sc.nextLine().trim();
+            String dayIn = sc.nextLine().trim();
+            String dayOut = sc.nextLine().trim();
+            int extras = Integer.parseInt(sc.nextLine().trim());
             Customer c = new Customer(i, name, room, dayIn, dayOut, extras);
             customers.add(c);
         }
@@ -54,7 +54,7 @@ class Customer {
         char floor = room.charAt(0);
         if(floor == '1') price = 25;
         else if(floor == '2') price = 34;
-        else if(floor == '3') price = 30;
+        else if(floor == '3') price = 50;
         else price = 80;
         
         totalPay = dayStay * price + extras;
@@ -74,6 +74,6 @@ class Customer {
     }
     
     public void show(){
-        System.out.printf("%s %s %s %d %d\n", id, name, room, dayStay, totalPay);
+        System.out.printf("%s %s %s %d %d\n", id.trim(), name.trim(), room.trim(), dayStay, totalPay);
     }
 }

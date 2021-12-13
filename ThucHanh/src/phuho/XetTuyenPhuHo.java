@@ -1,23 +1,24 @@
 package phuho;
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
 public class XetTuyenPhuHo {
-    public static void main(String[] args) throws ParseException {
-        Scanner sc = new Scanner(System.in);
+    public static void main(String[] args) throws ParseException, FileNotFoundException {
+        Scanner sc = new Scanner(new File("XETTUYEN.in"));
         Vector<Worker> res = new Vector<Worker>();
         int t = Integer.parseInt(sc.nextLine());
         for(int i=1;i<=t;i++){
-            String name = sc.nextLine();
-            String dob = sc.nextLine();
-            double theory = sc.nextDouble();
-            double practice = sc.nextDouble();
-            sc.nextLine();
+            String name = sc.nextLine().trim();
+            String dob = sc.nextLine().trim();
+            double theory = Double.parseDouble(sc.nextLine().trim());
+            double practice = Double.parseDouble(sc.nextLine().trim());
             Worker wo = new Worker(i, name, dob, theory, practice);
             res.add(wo);
         }
-        res.sort((i1,i2)->Long.compare(i2.getTotalPointInInt(), i1.getTotalPointInInt()));
+//        res.sort((i1,i2)->Long.compare(i2.getTotalPointInInt(), i1.getTotalPointInInt()));
         for(Worker i:res){
             i.show();
         }
@@ -34,7 +35,7 @@ class Worker {
     public Worker(int i,String name,String dob,double tPoint,double pPoint) throws ParseException{
        if(i<10) this.id = "PH0" + i;
        else this.id = "PH" + i;
-       this.name = name;
+       this.name = stdize(name);
        this.dob = new SimpleDateFormat("dd/MM/yyyy").parse(dob);
        this.theoryPoint = tPoint;
        this.practicePoint = pPoint;
@@ -44,6 +45,16 @@ class Worker {
        setRank();
        setAge();
     }
+    
+    private String stdize(String name){
+        String[] temp = name.toLowerCase().split("\\s+");
+        String res = "";
+        for(String i:temp){
+            res += i.substring(0,1).toUpperCase() + i.substring(1) + " ";
+        }
+        return res.trim();
+    }
+    
     private void setAvg(){
         avg = (practicePoint + theoryPoint)/2;
     }
